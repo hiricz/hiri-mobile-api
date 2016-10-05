@@ -143,6 +143,8 @@ To access resources, use the retrieved access token in yout HTTP Authorization H
 
 # Group Applications
 
+Application is an entity representing real-world application to a Job Offer.
+
 ## Applications Collection [/api/applications?limit={limit}&page={page}&sort={sort}&state={state}]
 
 + Parameters
@@ -497,7 +499,7 @@ Retrieves list of all Applications.
 
 ### Create an Application [POST]
 
-Creates an Application State.
+Creates an Application.
 
 + Request (application/json)
 
@@ -9431,7 +9433,7 @@ Retrieves Job Offer Reaction with given ID.
 
 Updates Job Offer Reaction with given ID.
 
-+ Requestion (application/json)
++ Request (application/json)
 
     + Attributes
         + type (string, optional) - Type of the Job Offer Reaction. Can be 'like' or 'dislike'.
