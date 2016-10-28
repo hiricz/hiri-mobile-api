@@ -7214,8 +7214,8 @@ Retrieves all Mobile App Feedbacks. Only users with support role can perform thi
 + Request (applicaton/json)
 
     + Attributes
-        + name (number, required) - Name of the author
-        + text (object, required) - Text of the feedback
+        + name (string, required) - Name of the author
+        + text (string, required) - Text of the feedback
 
     + Body
 
@@ -7247,7 +7247,7 @@ Retrieves all Mobile App Feedbacks. Only users with support role can perform thi
 + Attributes
     + id (number, required) - Id of the Mobile App Feedback
     + name (string, optional) - Name of the feedbacker
-    + text (string, optional) - Text of the feedback
+    + text (string, required) - Text of the feedback
     + created (string, required) - Date when the entity was created
     
 + Parameters
