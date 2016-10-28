@@ -690,7 +690,7 @@ Creates an Application.
 ## Company's Applications Collection [/api/companies/{company_id}/applications?limit={limit}&page={page}&sort={sort}&state={state}]
 
 + Parameters
-    + company (number, required) - ID of the Company.
+    + company_id (number, required) - ID of the Company.
     + limit (number, optional) - Limits number of candidates returned in the request
     + page (number, optional) - Distance from beginning of the array of available candidates
     + sort (string, optional) - Sorts the result in the given order. The format for sort is "column+ASC,column+DESC"
@@ -4618,7 +4618,7 @@ Creates Company Profile with given parameters.
     + twitter_link (string, required) - Name of the company on twitter
 
 + Parameters
-    + id (number, required) - Id of the company
+    + company_id (number, required) - Id of the company
 
 ### Retrieve a Company Profile [GET]
 
@@ -7169,6 +7169,135 @@ Updates a Faq Category with the given Id.
             }
         }
 
+
+# Group Mobile App Feedback
+
+## Mobile App Feedback Collection [/api/mobile-app-feedbacks]
+
+### List Mobile App Feedbacks [GET]
+
+Retrieves all Mobile App Feedbacks. Only users with support role can perform this action.
+
++ Response 200 (application/hal+json)
+
+        {
+          "_embedded": {
+            "mobile_app_feedbacks": [
+              {
+                "id": 1,
+                "name": "John Doe",
+                "text": "I like it!",
+                "created": "2016-10-28T11:18:09+0200",
+                "_links": {
+                  "self": {
+                    "href": "MobileAppFeedback:read"
+                  }
+                }
+              },
+              {
+                "id": 2,
+                "name": "Amy Doe",
+                "text": "My husband likes it, but I love it!",
+                "created": "2016-10-28T11:18:09+0200",
+                "_links": {
+                  "self": {
+                    "href": "MobileAppFeedback:read"
+                  }
+                }
+              }
+            ]
+          }
+        }
+
+### Create a Faq [POST]
+
++ Request (applicaton/json)
+
+    + Attributes
+        + name (number, required) - Name of the author
+        + text (object, required) - Text of the feedback
+
+    + Body
+
+            {
+                "name": "John Doe",
+                "text": "I like it!"
+            }
+
++ Response 201 (application/hal+json)
+
+        {
+          "ok": true,
+          "inserted": {
+            "id": 1001,
+            "name": "John Doe",
+            "text": "I like it!",
+            "created": "2016-10-28T11:18:21+0200",
+            "_links": {
+              "self": {
+                "href": "MobileAppFeedback:read"
+              }
+            }
+          }
+        }
+
+
+## Mobile App Feedback [/api/mobile-app-feedbacks/{id}]
+
++ Attributes
+    + id (number, required) - Id of the Mobile App Feedback
+    + name (string, optional) - Name of the feedbacker
+    + text (string, optional) - Text of the feedback
+    + created (string, required) - Date when the entity was created
+    
++ Parameters
+    + id (number, required) - Id of the Mobile App Feedback
+
+### Retrieve a Mobile App Feedback [GET]
+
+Retrieves a Mobile App Feedback with the given Id.
+
++ Response 200 (application/hal+json)
+
+        {
+          "id": 1,
+          "name": "John Doe",
+          "text": "I like it!",
+          "created": "2016-10-28T11:18:31+0200",
+          "_links": {
+            "self": {
+              "href": "MobileAppFeedback:read"
+            }
+          }
+        }
+
+### Update a Mobile App Feedback [PUT]
+
+Updates a Mobile App Feedback with the given Id. Only users with support role can perform this action.
+
++ Request (application/json)
+
+        {
+            "name": "John Doe",
+            "text": "Actually, I do love it!"
+        }
+
++ Response 200 (application/hal+json)
+
+        {
+          "ok": true,
+          "updated": {
+            "id": 1,
+            "name": "Johnny Doe",
+            "text": "I love it!",
+            "created": "2016-10-28T11:18:36+0200",
+            "_links": {
+              "self": {
+                "href": "MobileAppFeedback:read"
+              }
+            }
+          }
+        }
 
 # Group Forgotten Password
 
