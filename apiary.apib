@@ -7374,7 +7374,7 @@ Retrieves details of Forgotten Password with the given id. The Forgotten Passwor
 
 # Group Job Offers 
 
-## Job Offers Collection [/api/job-offers?limit={limit}&page={page}&sort={sort}&state={state}&state-category={state_category}&job-type={job_type}&job-category={job_category}&location={location}&search={search}]
+## Job Offers Collection [/api/job-offers?limit={limit}&page={page}&sort={sort}&state={state}&state-category={state_category}&job-type={job_type}&job-category={job_category}&location={location}&search={search}&from-id={from_id}]
 
 + Parameters
     + limit (number, optional) - Limits number of jobs returned in the request
@@ -7386,6 +7386,7 @@ Retrieves details of Forgotten Password with the given id. The Forgotten Passwor
     + job_category (number, optional) - Filters by Job Category
     + location (string, optional) - Filters JobOffers by location
     + search (string, optional) - Full text search on the Job Offers. Considers Job Offer title, description, Job Types title, locality and Job Category title.
+    + from_id (number, optional) - Selects only offers with id greater or equal then the given number. **Always use with sorting by ID**
 
 ### List Job Offers [GET]
 
